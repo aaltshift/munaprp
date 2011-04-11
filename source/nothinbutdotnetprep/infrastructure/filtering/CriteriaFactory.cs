@@ -25,7 +25,7 @@ namespace nothinbutdotnetprep.infrastructure.filtering
 
         public Criteria<ItemToMatch> not_equal_to(PropertyType value)
         {
-            throw new NotImplementedException();
+            return new NotCriteria<ItemToMatch>(this.equal_to(value));
         }
     }
 }
