@@ -240,7 +240,7 @@ namespace nothinbutdotnetprep.specs
             {
                 var criteria =
                     Where<Movie>.has_an(x => x.date_published.Year)
-                        .between(1982,2003);
+                        .between(1982, 2003);
 
                 var results = sut.all_movies().all_items_matching(criteria);
 
