@@ -52,7 +52,6 @@ namespace nothinbutdotnetprep.infrastructure.filtering
         public Criteria<ItemToMatch> greater_than(PropertyType value)
         {
             return matches(x => this.compare(x, value) > 0);
-            return matches(x => this.compare(x, value) > 0);
         }
 
         private int compare(ItemToMatch x, PropertyType value)
