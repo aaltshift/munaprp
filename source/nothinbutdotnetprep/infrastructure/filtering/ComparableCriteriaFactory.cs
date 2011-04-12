@@ -50,14 +50,14 @@ namespace nothinbutdotnetprep.infrastructure.filtering
             return GetAnonymousCriteria(end, x => accessor(x).CompareTo(end) < 0);
         }
 
-        private AnonymousCriteria<ItemToMatch> GetAnonymousCriteria(PropertyType end, Condition<ItemToMatch> condition)
-        {
-            return new AnonymousCriteria<ItemToMatch>(condition);
-        }
-
         public Criteria<ItemToMatch> greater_than(PropertyType value)
         {
             return this.GetAnonymousCriteria(value, x => accessor(x).CompareTo(value) > 0);
+        }
+
+        private AnonymousCriteria<ItemToMatch> GetAnonymousCriteria(PropertyType end, Condition<ItemToMatch> condition)
+        {
+            return new AnonymousCriteria<ItemToMatch>(condition);
         }
     }
 }
