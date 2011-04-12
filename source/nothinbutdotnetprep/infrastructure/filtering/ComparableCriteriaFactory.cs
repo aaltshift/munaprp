@@ -36,12 +36,12 @@ namespace nothinbutdotnetprep.infrastructure.filtering
 
         public Criteria<ItemToMatch> greater_than_or_equal_to(PropertyType start)
         {
-            return Where<ItemToMatch>.has_a(accessor).equal_to(start).or(greater_than(start));
+            return factory.equal_to(start).or(this.greater_than(start));
         }
 
         public Criteria<ItemToMatch> less_than_or_equal_to(PropertyType end)
         {
-            return matches(x => accessor(x).CompareTo(end) <= 0);
+            return matches(x => CompareTo(x, end) <= 0);
         }
 
         public Criteria<ItemToMatch> between(PropertyType start, PropertyType end)
@@ -51,7 +51,12 @@ namespace nothinbutdotnetprep.infrastructure.filtering
 
         public Criteria<ItemToMatch> greater_than(PropertyType value)
         {
-            return matches(x => accessor(x).CompareTo(value) > 0);
+            return matches(x => CompareTo(x, value) > 0);
+        }
+
+        private int CompareTo(ItemToMatch x, PropertyType value)
+        {
+            return accessor(x).CompareTo(value);
         }
     }
 }
