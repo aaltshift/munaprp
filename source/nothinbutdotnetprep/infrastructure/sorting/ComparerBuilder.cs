@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 namespace nothinbutdotnetprep.infrastructure.sorting
 {
+    using System.Collections;
+
     public class ComparerBuilder<ItemToSort> : IComparer<ItemToSort>
     {
         IComparer<ItemToSort> comparer;
